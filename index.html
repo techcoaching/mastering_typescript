@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<base href="/">
+	<title>Learn In Action - Mastering Typescript</title>
+	<link rel="shortcut icon" href="/src/resources/images/baby_book.png" />
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="Angular,TypeScript,Enterprise Application">
+	<meta name="author" content="TU Tran (http://tranthanhtu.vn)">
+</head>
+
+<body>
+	<script src="node_modules/core-js/client/shim.min.js"></script>
+	<script src="node_modules/systemjs/dist/system.src.js"></script>
+	<script src="systemjs.conf.js"></script>
+	<script>
+        System.import("src/main").then(()=>{
+            console.log("main was loaded");
+        })
+        .catch((error)=>{
+            console.log("Unhandled error", error);
+        });
+	</script>
+</body>
+
+</html>

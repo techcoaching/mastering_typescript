@@ -1,0 +1,26 @@
+{
+  "name": "mastering-typescript",
+  "version": "1.0.0",
+  "description": "For learning typescript",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc":"tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techcoaching/mastering_typescript.git"
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "author": "Tu Tran <contact@tranthanhtu.vn>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/techcoaching/mastering_typescript/issues"
+  },
+  "homepage": "https://github.com/techcoaching/mastering_typescript#readme",
+  "devDependencies": {
+    "typescript": "^3.5.3"
+  }
+}
