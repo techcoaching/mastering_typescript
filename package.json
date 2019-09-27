@@ -24,7 +24,7 @@
   "devDependencies": {
     "connect": "^3.7.0",
     "core-js": "2.5.7",
-    "systemjs": "^0.19.47",
+    "systemjs": "0.19.47",
     "typescript": "^3.5.3"
   },
   "dependencies": {
