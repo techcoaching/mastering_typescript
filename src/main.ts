@@ -5,4 +5,4 @@ class Application{
 }
 
 
-new Application.run();
+Application.run();
