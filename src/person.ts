@@ -1,5 +1,5 @@
 import {IPerson} from "./iperson";
-import {PersonGenderType, PersonConst} from "./enum";
+import * as Const from "./enum";
 export class Person implements IPerson{
 	public name:string;
 	private _fullName:string;
@@ -14,7 +14,7 @@ export class Person implements IPerson{
 	public email:string;
 	public job:string;
 	public address: string
-	public gender:PersonGenderType;// enum
+	public gender:Const.PersonGenderType;// enum
 	constructor(
 		fullName: string,
 		age: number,
@@ -26,10 +26,10 @@ export class Person implements IPerson{
 		this.email=email;
 		this.job=job;
 		this.address=address;
-		this.gender=PersonGenderType.Female;
+		this.gender=Const.PersonGenderType.Female;
 	}
 	private static printMaxAge():void{
-		console.log("Person max age: "+ PersonConst.MAX_AGE);
+		console.log("Person max age: "+ Const.PersonConst.MAX_AGE);
 	}
 	public printInfo():void{
 		console.log("Hello "+ this.getName());

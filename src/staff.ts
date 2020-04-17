@@ -1,5 +1,5 @@
 import {Person} from "./person";
-export class Staff extends Person{
+class Staff extends Person{
 	public startDate:Date;
 	
 	constructor(fullName:string, age:number, email:string, job:string, address:string, startDate:Date){
@@ -11,3 +11,4 @@ export class Staff extends Person{
 		console.log("Start working date:"+ this.startDate);
 	}
 }
+export = Staff;

@@ -1,6 +1,6 @@
 import {Person} from "./person";
 import {Employee}  from "./employee";
-import {Staff} from "./staff";
+import Staff = require("./staff");
 import helper from "./printHelper";
 class Application{
     public static run(){
