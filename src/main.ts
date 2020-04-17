@@ -12,26 +12,20 @@ class Application{
 		let address:string ="HCM";
 
 		let person:Person=new Person(fullName, age, email, job, address);// constructor
+		let employee: Employee = new Employee(fullName, 35, email, job, address, "My Company");
 		/*person.fullName=fullName;
 		person.age=age;
 		person.email=email;
 		person.job=job;
 		person.address="HCM";*/
 		person.printInfo();// method
+		console.log("Employee info");
+		employee.printInfo();
 		//printInfo(person);
-		printInfo1(fullName, age, email, job, address);
+		//printInfo1(fullName, age, email, job, address);
     }
 }
-// function printInfo(person: Person):void{
-// 	person.fullName="";
-// 	console.log("Hello "+ person.fullName);
-// 	console.log("Your age is "+ person.age);
-// 	console.log("Person max age: "+ Person.MAX_AGE);
-// 	console.log("Your email "+ person.email);
-// 	console.log("Your job "+ person.job);
-// 	console.log("Your address "+ person.address);
-	
-// }
+
 
 function printInfo1(fullName:string, age: number, email:string, job:string, address: string):void{
 	console.log("Print Info 1 ");
@@ -41,6 +35,7 @@ function printInfo1(fullName:string, age: number, email:string, job:string, addr
 	console.log("Your job "+ job);
 	console.log("Your address "+ address);
 }
+
 
 
 /** 
@@ -86,6 +81,19 @@ class Person{
 	}
 	private getName():string{
 		return this.fullName;
+	}
+}
+
+class Employee extends Person{
+	public companyName:string;
+	
+	constructor(fullName:string, age:number, email:string, job:string, address:string, companyName:string){
+		super(fullName, age, email, job, address);
+		this.companyName=companyName;
+	}
+	public printInfo():void{
+		super.printInfo();
+		console.log("Company:"+ this.companyName);
 	}
 }
 
