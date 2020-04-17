@@ -17,20 +17,21 @@ class Application{
 		person.email=email;
 		person.job=job;
 		person.address="HCM";*/
-
-		printInfo(person);
+		person.printInfo();// method
+		//printInfo(person);
 		printInfo1(fullName, age, email, job, address);
     }
 }
-function printInfo(person: Person):void{
-	console.log("Hello "+ person.fullName);
-	console.log("Your age is "+ person.age);
-	console.log("Person max age: "+ Person.MAX_AGE);
-	console.log("Your email "+ person.email);
-	console.log("Your job "+ person.job);
-	console.log("Your address "+ person.address);
+// function printInfo(person: Person):void{
+// 	person.fullName="";
+// 	console.log("Hello "+ person.fullName);
+// 	console.log("Your age is "+ person.age);
+// 	console.log("Person max age: "+ Person.MAX_AGE);
+// 	console.log("Your email "+ person.email);
+// 	console.log("Your job "+ person.job);
+// 	console.log("Your address "+ person.address);
 	
-}
+// }
 
 function printInfo1(fullName:string, age: number, email:string, job:string, address: string):void{
 	console.log("Print Info 1 ");
@@ -41,11 +42,19 @@ function printInfo1(fullName:string, age: number, email:string, job:string, addr
 	console.log("Your address "+ address);
 }
 
+
 /** 
  * naming convention: pascal case, camel case, snake case, ...
  */
 class Person{
-	public fullName:string;
+	private _fullName:string;
+	public get fullName():string{
+		return this._fullName;
+	}
+	public set fullName(val:string){
+		this._fullName=val;
+	}
+	
 	public age:number;
 	public email:string;
 	public job:string;
@@ -62,6 +71,21 @@ class Person{
 		this.email=email;
 		this.job=job;
 		this.address=address;
+	}
+	private static printMaxAge():void{
+		console.log("Person max age: "+ Person.MAX_AGE);
+	}
+	public printInfo():void{
+		console.log("Hello "+ this.getName());
+		console.log("Your age is "+ this.age);
+		Person.printMaxAge();
+		//console.log("Person max age: "+ Person.MAX_AGE);
+		console.log("Your email "+ this.email);
+		console.log("Your job "+ this.job);
+		console.log("Your address "+ this.address);
+	}
+	private getName():string{
+		return this.fullName;
 	}
 }
 
