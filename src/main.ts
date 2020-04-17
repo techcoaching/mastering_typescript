@@ -12,41 +12,45 @@ class Application{
 		let address:string ="HCM";
 
 		let person:Person=new Person(fullName, age, email, job, address);// constructor
+		let employee: Employee = new Employee(fullName, 35, email, job, address, "My Company");
+		let staff: Staff = new Staff(fullName, 35, email, job, address, new Date(Date.now()));
+		
 		/*person.fullName=fullName;
 		person.age=age;
 		person.email=email;
 		person.job=job;
 		person.address="HCM";*/
-		person.printInfo();// method
-		//printInfo(person);
-		printInfo1(fullName, age, email, job, address);
+		//person.printInfo();// method
+		//console.log("Employee info");
+		//employee.printInfo();
+		printInfo(person);
+		printInfo(employee);
+		printInfo(staff);
+		//printInfo1(fullName, age, email, job, address);
     }
 }
-// function printInfo(person: Person):void{
-// 	person.fullName="";
-// 	console.log("Hello "+ person.fullName);
-// 	console.log("Your age is "+ person.age);
-// 	console.log("Person max age: "+ Person.MAX_AGE);
-// 	console.log("Your email "+ person.email);
-// 	console.log("Your job "+ person.job);
-// 	console.log("Your address "+ person.address);
-	
-// }
 
-function printInfo1(fullName:string, age: number, email:string, job:string, address: string):void{
-	console.log("Print Info 1 ");
-	console.log("Hello "+ fullName);
-	console.log("Your age is "+ age);
-	console.log("Your email "+ email);
-	console.log("Your job "+ job);
-	console.log("Your address "+ address);
+
+function printInfo(person: IPerson):void{
+	person.printInfo();
+	/////////
 }
 
+
+interface IPerson{
+	name:string;
+	printInfo():void;
+}
+
+class Student{
+
+}
 
 /** 
  * naming convention: pascal case, camel case, snake case, ...
  */
-class Person{
+class Person implements IPerson{
+	public name:string;
 	private _fullName:string;
 	public get fullName():string{
 		return this._fullName;
@@ -86,6 +90,31 @@ class Person{
 	}
 	private getName():string{
 		return this.fullName;
+	}
+}
+
+class Employee extends Person implements IPerson{
+	public companyName:string;
+	
+	constructor(fullName:string, age:number, email:string, job:string, address:string, companyName:string){
+		super(fullName, age, email, job, address);
+		this.companyName=companyName;
+	}
+	public printInfo():void{
+		super.printInfo();
+		console.log("Company:"+ this.companyName);
+	}
+}
+class Staff extends Person implements IPerson{
+	public startDate:Date;
+	
+	constructor(fullName:string, age:number, email:string, job:string, address:string, startDate:Date){
+		super(fullName, age, email, job, address);
+		this.startDate=startDate;
+	}
+	public printInfo():void{
+		super.printInfo();
+		console.log("Start working date:"+ this.startDate);
 	}
 }
 
