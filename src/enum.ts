@@ -4,5 +4,5 @@ export enum PersonGenderType{
 }
 
 export class PersonConst{
-    public static readonly MAX_AGE:Number=100;
+    public static readonly MAX_AGE:number=100;
 }

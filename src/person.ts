@@ -7,6 +7,7 @@ export class Person implements IPerson{
 		return this._fullName;
 	}
 	public set fullName(val:string){
+		
 		this._fullName=val;
 	}
 	
