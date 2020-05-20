@@ -5,6 +5,8 @@ import helper from "./printHelper";
 import {PersonService} from "./personService";
 import {EmployeeService}  from "./employeeService";
 import{GenericService} from "./genericService"; 
+import { IPerson } from "./iperson";
+
 class Application{
     public static run(){
 		console.log("Hello, this message from application");   
@@ -34,11 +36,12 @@ class Application{
 		console.log("Print current employee: Generic");
 		//let currentEmployee:Employee = employeeService.getLastEmployee();
 		let currentEmployee:Employee = employeeService1.getLast();
-		helper.printInfo(currentEmployee);
+		helper.printInfo<Employee>(currentEmployee);
 
 		console.log("Print current person info: Generic");
 		let currentPerson: Person= personService1.getLast();
-		helper.printInfo(currentPerson);
+		helper.printInfo<Person>(currentPerson);
+
 
 		//let currentPerson: Person= personService.getLastPerson();
 		//helper.printInfo(currentPerson);
