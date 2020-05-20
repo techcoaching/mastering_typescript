@@ -1,6 +1,7 @@
 import { Employee } from "./employee";
+import { IGenericService } from "./igenericService";
 
-export class GenericService<TEntity>{
+export class GenericService<TEntity> implements IGenericService<TEntity>{
     private entities:Array<TEntity>;
     constructor(){
         this.entities=new Array<TEntity>();
@@ -9,6 +10,8 @@ export class GenericService<TEntity>{
         this.entities.push(entity);
     }
     public getLast():TEntity{
+        
         return this.entities.pop();
+
     }
 }
