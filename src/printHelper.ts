@@ -14,5 +14,6 @@ function printInfoWithTemplate(obj: any){
     for(let pro in obj){
         tpl=tpl.replace(`{{${pro}}}`, obj[pro])    
     }
+    console.log(obj.isRequireValidation);
     window.document.body.innerHTML+=tpl;
 }

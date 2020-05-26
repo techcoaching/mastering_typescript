@@ -1,12 +1,17 @@
 import {IPerson} from "./iperson";
 import * as Const from "./enum";
 import {template} from "./decorators/template";
+import { isRequireValidation } from "./decorators/isRequireValidation";
 /*
 This is person infor:Name: <name>, Age: <age>.
-
+decorator composition
 */
 
-@template("This is person infor:Name: {{name}}, Age: {{age}}.")
+@isRequireValidation
+@template({
+	selector:"person",
+	template:"This is person infor:Name: {{name}}, Age: {{age}}."
+})
 export class Person implements IPerson{
 	public name:string;
 	private _fullName:string;
