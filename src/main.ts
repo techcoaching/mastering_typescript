@@ -35,6 +35,10 @@ class Application{
 		console.log("Print current person info: Generic");
 		let currentPerson: Person= personService1.getLast();
 		helper.printInfo<Person>(currentPerson);
+		console.log("Print with template:");
+		
+		helper.printInfoWithTemplate(currentPerson);
+		helper.printInfoWithTemplate(currentEmployee);
 
 		let worker:Worker = ObjectFactory.create<Worker>(Worker, "name from main");
 		console.log(worker);

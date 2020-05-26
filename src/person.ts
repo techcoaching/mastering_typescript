@@ -1,5 +1,12 @@
 import {IPerson} from "./iperson";
 import * as Const from "./enum";
+import {template} from "./decorators/template";
+/*
+This is person infor:Name: <name>, Age: <age>.
+
+*/
+
+@template("This is person infor:Name: {{name}}, Age: {{age}}.")
 export class Person implements IPerson{
 	public name:string;
 	private _fullName:string;
@@ -22,6 +29,7 @@ export class Person implements IPerson{
 		email:string,
 		job: string,
 		address: string){
+		this.name=fullName;
 		this.fullName=fullName;
 		this.age=age;
 		this.email=email;

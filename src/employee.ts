@@ -1,4 +1,6 @@
 import {Person} from "./person";
+import { template } from "./decorators/template";
+@template("<div>This is employee info:</br><label>Company name: {{companyName}}</label><label>Email: {{email}}</label></div>")
 export class Employee extends Person{
 	public companyName:string;
 	
