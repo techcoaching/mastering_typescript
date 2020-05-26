@@ -5,6 +5,5 @@ let helper={
 export default helper;
 
 function printInfo<TEntity extends IPerson>(entity: TEntity):void{
-    let temp:TEntity;
 	entity.printInfo();
 }

@@ -4,7 +4,8 @@ import Staff = require("./staff");
 import helper from "./printHelper";
 import{GenericService} from "./genericService"; 
 import {IGenericService} from "./igenericService";
-import { IPerson } from "./iperson";
+import { Worker } from "./worker";
+import {ObjectFactory} from "./objectFactory";
 
 class Application{
     public static run(){
@@ -34,6 +35,12 @@ class Application{
 		console.log("Print current person info: Generic");
 		let currentPerson: Person= personService1.getLast();
 		helper.printInfo<Person>(currentPerson);
+
+		let worker:Worker = ObjectFactory.create<Worker>(Worker, "name from main");
+		console.log(worker);
+
+		let employee1:Employee = ObjectFactory.create<Employee>(Employee,"TU Tran", 35,"contact@tranthanhtu.vn", "IT", "HCM", "ABC");
+		console.log(employee1);
     }
 }
 

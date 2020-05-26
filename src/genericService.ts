@@ -1,4 +1,3 @@
-import { Employee } from "./employee";
 import { IGenericService } from "./igenericService";
 
 export class GenericService<TEntity> implements IGenericService<TEntity>{
