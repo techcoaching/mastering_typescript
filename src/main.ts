@@ -17,11 +17,8 @@ class Application{
 		let address:string ="HCM";
 
 		let person:Person=new Person(fullName, age, email, job, address);// constructor
-		let name=person.getName();
-		console.log("Person name:"+ name);
-		person.print("TU Tran");
-		person.printInfo();
-		console.log("after person.printInfo");
+		person.print("test value");
+		console.log("Person validation:", person["__validations"]);
 		 ////
     }
 }

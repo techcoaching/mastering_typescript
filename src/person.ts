@@ -4,6 +4,8 @@ import {template} from "./decorators/template";
 import { isRequireValidation } from "./decorators/isRequireValidation";
 import {readonly} from "./decorators/readonly";
 import {errorHandler} from "./decorators/errorHandler";
+import {required} from "./decorators/required";
+import {validate} from "./decorators/validate";
 /*
 This is person infor:Name: <name>, Age: <age>.
 decorator composition
@@ -47,8 +49,11 @@ export class Person implements IPerson{
 	private static printMaxAge():void{
 		console.log("Person max age: "+ Const.PersonConst.MAX_AGE);
 	}
-	@errorHandler
-	public print(name:string):void{
+	//@errorHandler
+	@validate
+	public print(
+		 @required name:string,
+		 ):void{
 		console.log("Inside person print method:"+ name);
 	}
 	@readonly(true) /// method decorator
