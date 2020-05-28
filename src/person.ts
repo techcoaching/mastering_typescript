@@ -2,6 +2,8 @@ import {IPerson} from "./iperson";
 import * as Const from "./enum";
 import {template} from "./decorators/template";
 import { isRequireValidation } from "./decorators/isRequireValidation";
+import {readonly} from "./decorators/readonly";
+import {errorHandler} from "./decorators/errorHandler";
 /*
 This is person infor:Name: <name>, Age: <age>.
 decorator composition
@@ -45,15 +47,22 @@ export class Person implements IPerson{
 	private static printMaxAge():void{
 		console.log("Person max age: "+ Const.PersonConst.MAX_AGE);
 	}
+	@errorHandler
+	public print(name:string):void{
+		console.log("Inside person print method:"+ name);
+	}
+	@readonly(true) /// method decorator
+	@errorHandler
 	public printInfo():void{
 		console.log("Hello "+ this.getName());
 		console.log("Your age is "+ this.age);
-		Person.printMaxAge();
 		console.log("Your email "+ this.email);
 		console.log("Your job "+ this.job);
 		console.log("Your address "+ this.address);
+		//throw "just test exception";
 	}
-	private getName():string{
+	@errorHandler
+	public getName():string{
 		return this.fullName;
 	}
 }

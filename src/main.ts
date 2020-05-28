@@ -17,34 +17,12 @@ class Application{
 		let address:string ="HCM";
 
 		let person:Person=new Person(fullName, age, email, job, address);// constructor
-		let employee: Employee = new Employee(fullName, 35, email, job, address, "My Company");
-		let staff: Staff = new Staff(fullName, 35, email, job, address, new Date(Date.now()));
-
-		// service
-		let employeeService1: IGenericService<Employee> = new GenericService<Employee>();
-		employeeService1.add(employee);
-
-		let personService1: IGenericService<Person> = new GenericService<Person>();
-		personService1.add(person);
-		// coding technique
-		////// do something
-		console.log("Print current employee: Generic");
-		let currentEmployee:Employee = employeeService1.getLast();
-		helper.printInfo<Employee>(currentEmployee);
-
-		console.log("Print current person info: Generic");
-		let currentPerson: Person= personService1.getLast();
-		helper.printInfo<Person>(currentPerson);
-		console.log("Print with template:");
-		helper.printInfoWithTemplate(currentPerson);
-		console.log("Print employee  with template:");
-		helper.printInfoWithTemplate(currentEmployee);
-
-		let worker:Worker = ObjectFactory.create<Worker>(Worker, "name from main");
-		console.log(worker);
-
-		let employee1:Employee = ObjectFactory.create<Employee>(Employee,"TU Tran", 35,"contact@tranthanhtu.vn", "IT", "HCM", "ABC");
-		console.log(employee1);
+		let name=person.getName();
+		console.log("Person name:"+ name);
+		person.print("TU Tran");
+		person.printInfo();
+		console.log("after person.printInfo");
+		 ////
     }
 }
 
