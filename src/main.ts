@@ -12,11 +12,12 @@ class Application{
 		let address:string ="HCM";
 
 		let person:Person=new Person(fullName, age, email, job, address);// constructor
-		console.log(person);
-		if(!validateHelper.isValid(person)){
-			throw "Person was invalid state";
-		}
-		console.log("Person object was saved");
+		//person.fullName="";
+		console.log(person.fullName);
+		// if(!validateHelper.isValid(person)){
+		// 	throw "Person was invalid state";
+		// }
+		// console.log("Person object was saved");
 		// do other stuff
 		// before save repository
 		///
