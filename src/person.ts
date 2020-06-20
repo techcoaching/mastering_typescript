@@ -1,21 +1,11 @@
 import {IPerson} from "./iperson";
 import * as Const from "./enum";
-import {template} from "./decorators/template";
-import { isRequireValidation } from "./decorators/isRequireValidation";
-import {readonly} from "./decorators/readonly";
-import {errorHandler} from "./decorators/errorHandler";
-import {required} from "./decorators/required";
-import {validate} from "./decorators/validate";
+import {range} from "./decorators/range";
 /*
 This is person infor:Name: <name>, Age: <age>.
 decorator composition
 */
 
-@isRequireValidation
-@template({
-	selector:"person",
-	template:"This is person infor:Name: {{name}}, Age: {{age}}."
-})
 export class Person implements IPerson{
 	public name:string;
 	private _fullName:string;
@@ -27,7 +17,10 @@ export class Person implements IPerson{
 		this._fullName=val;
 	}
 	
+	// 5=>age<=20
+	@range(5, 20)
 	public age:number;
+	public static MAX_AGE:number=100;
 	public email:string;
 	public job:string;
 	public address: string
@@ -49,15 +42,11 @@ export class Person implements IPerson{
 	private static printMaxAge():void{
 		console.log("Person max age: "+ Const.PersonConst.MAX_AGE);
 	}
-	//@errorHandler
-	@validate
 	public print(
-		 @required name:string,
+		 name:string,
 		 ):void{
 		console.log("Inside person print method:"+ name);
 	}
-	@readonly(true) /// method decorator
-	@errorHandler
 	public printInfo():void{
 		console.log("Hello "+ this.getName());
 		console.log("Your age is "+ this.age);
@@ -66,7 +55,6 @@ export class Person implements IPerson{
 		console.log("Your address "+ this.address);
 		//throw "just test exception";
 	}
-	@errorHandler
 	public getName():string{
 		return this.fullName;
 	}
