@@ -14,9 +14,9 @@ class Application{
 		let person:Person=new Person(fullName, age, email, job, address);// constructor
 		//person.fullName="";
 		console.log(person.fullName);
-		// if(!validateHelper.isValid(person)){
-		// 	throw "Person was invalid state";
-		// }
+		if(!validateHelper.isValid(person)){
+			throw "Person was invalid state";
+		}
 		// console.log("Person object was saved");
 		// do other stuff
 		// before save repository

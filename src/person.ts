@@ -19,7 +19,7 @@ export class Person implements IPerson{
 		return this._fullName;
 	}
 	
-	
+	@range(5, 20)
 	public age:number;
 	public static MAX_AGE:number=100;
 	public email:string;

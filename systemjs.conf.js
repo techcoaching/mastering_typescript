@@ -1,6 +1,13 @@
 System.config({
+    "paths":{
+        "reflect-metadata":"./node_modules/reflect-metadata"
+    },
     packages:{
         "src":{
+            defaultExtension:"js"
+        },
+        "reflect-metadata":{
+            main:"Reflect",
             defaultExtension:"js"
         }
     }
