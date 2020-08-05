@@ -1,11 +1,16 @@
 import {IPerson} from "./iperson";
 import * as Const from "./enum";
 import {range} from "./decorators/range";
-import {notEmpty} from "./decorators/notEmpty";
+import {injectable} from "./decorators/injectable";
+import Staff = require("./staff");
 /*
 This is person infor:Name: <name>, Age: <age>.
 decorator composition
 */
+
+class PersonService{}
+
+
 
 export class Person implements IPerson{
 	public name:string;
@@ -31,7 +36,8 @@ export class Person implements IPerson{
 		age: number,
 		email:string,
 		job: string,
-		address: string){
+		address: string
+		){
 		this.name=fullName;
 		this.fullName=fullName;
 		this.age=age;
@@ -60,3 +66,5 @@ export class Person implements IPerson{
 		return this.fullName;
 	}
 }
+
+
